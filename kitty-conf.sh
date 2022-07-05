@@ -24,21 +24,32 @@ else
 	exit
 fi
 
-mkdir ~/.config/kitty/
-cp -r ./kitty-config-files/* ~/.config/kitty/
-current_path=$(pwd)
+### CREATING KITTY CONFIGURATION FOLDER
+if [ ! -d "~/.config/kitty/" ]
+then
+	mkdir ~/.config/kitty/
+	if [ ! -d "~/.config/kitty/kitty-themes" ]
+	then
+		cp -r ./kitty-conf-files/* ~/.config/kitty/
+	fi
+fi
 
-cd .config/kitty/
+echo "KITTY_THEME : Earth Song"
+if [ ! -f "~/.config/kitty/earthsong.conf" ]
+then
+	ln -s ~/.config/kitty/kitty-themes/Earthsong.conf ~/.config/kitty/earthsong-config.conf
+	echo "include ./earthsong-config.conf" >> ~/.config/kitty/kitty.conf
+fi
 
-echo "Choosing Earth Song theme."
-ln -s ./kitty-themes/Earthsong.conf ~/.config/kitty/earthsong.conf"
+if [ ! -d "/usr/share/fonts/Monofur" ]
+then
+	echo "Installing Monofur Nerd font"
+	wget https://github.com/ryanoasis/nerd-fonts/releases/download/v2.1.0/Monofur.zip
+	sudo mkdir /usr/share/fonts/Monofur
+	sudo unzip ./Monofur.zip -d /usr/share/fonts/Monofur
+fi
 
-cd $current_path
-echo "Installing Monofur Nerd font"
-wget https://github.com/ryanoasis/nerd-fonts/releases/download/v2.1.0/Monofur.zip
-
-sudo mkdir /usr/share/fonts/Monofur
-sudo unzip ./Monofur.zip -d /usr/share/fonts/Monofur
+echo "UPDATING FONT CACHE"
 fc-cache -f -v
 
 rm -rf ./Monofur.zip
