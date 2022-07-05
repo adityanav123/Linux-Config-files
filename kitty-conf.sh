@@ -30,8 +30,10 @@ then
 	mkdir ~/.config/kitty/
 	if [ ! -d "~/.config/kitty/kitty-themes" ]
 	then
-		cp -r ./kitty-conf-files/* ~/.config/kitty/
+		cp -r ./kitty-conf-files/kitty.conf ~/.config/kitty/
 	fi
+	# DOWNLOADING KITTY THEMES
+	git clone --depth 1 https://github.com/dexpota/kitty-themes.git ~/.config/kitty/kitty-themes
 fi
 
 echo "KITTY_THEME : Earth Song"
