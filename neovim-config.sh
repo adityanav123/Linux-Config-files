@@ -52,7 +52,7 @@ fi
 
 
 # vim plug
-if [ ! -d "~/.config/nvim/plugged"]
+if [ ! -d "~/.config/nvim/plugged" ]
 then
     mkdir ~/.config/nvim/plugged/
     sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
@@ -65,7 +65,7 @@ read choice
 
 if [[ "$choice" -eq "Y" || "$choice" -eq "y" ]]
 then
-    if [[ $(command -v nodejs )]]
+    if [[ $(command -v nodejs) ]]
     then
         :
     else
