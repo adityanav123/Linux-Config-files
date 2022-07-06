@@ -3,7 +3,7 @@
 echo "neo-vim configuration setup."
 
 
-if [[ $(command -v neovim) ]]; then
+if [[ $(command -v nvim) ]]; then
 	:
 else
 	echo "Install NeoVim first"
@@ -42,7 +42,7 @@ then
     else
         echo "Config Files Exist!, Override? (y/N)"
         read override_choice
-        if [[ "$override_choice" == "y" || "$override_choice" == "Y" ]]
+        if [[ "$override_choice" -eq "y" || "$override_choice" -eq "Y" ]]
         then
             echo "Overriding.."
             cp -r ./Neovim-Config-Files/init.vim ~/.config/nvim/
