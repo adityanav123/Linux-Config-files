@@ -36,18 +36,9 @@ fi
 if [ ! -d "~/.config/nvim/" ]
 then
 	mkdir ~/.config/nvim/
-    if [ ! -f "~/.config/nvim/init.vim" ]
-    then
-	    cp -r ./Neovim-Config-Files/init.vim ~/.config/nvim/
-    else
-        echo "Config Files Exist!, Override? (y/N)"
-        read override_choice
-        if [[ "$override_choice" -eq "y" || "$override_choice" -eq "Y" ]]
-        then
-            echo "Overriding.."
-            cp -r ./Neovim-Config-Files/init.vim ~/.config/nvim/
-        fi
-    fi
+
+    # Copying the config files.
+	cp -r ./Neovim-Config-Files/init.vim ~/.config/nvim/
 fi
 
 
