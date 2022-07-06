@@ -60,18 +60,14 @@ then
 fi
 
 # CoC config
-echo "Install CoC for NeoVim?. (autocomplete, autocorrect in programs) (Y/N)"
-read choice
-
-if [[ "$choice" -eq "Y" || "$choice" -eq "y" ]]
+echo "Installing. CoC for NeoVim?. (autocomplete, autocorrect in programs) (Y/N)"
+if [[ $(command -v node) && $(command -v npm) ]]
 then
-    if [[ $(command -v node) && $(command -v npm) ]]
-    then
-        :
-    else
-        echo "Install nodejs and npm first. Rest Configurations, will be saved."
-        exit
-    fi
+    :
+else
+    echo "Install nodejs and npm first. Rest Configurations, will be saved."
+    exit
+fi
 
     sudo npm i -g yarn
     curr=$pwd
@@ -80,6 +76,6 @@ then
     yarn build
     echo "coc set up ; can install language servers now."
     cd $curr
-fi
-echo "done.."
 
+echo "done.."
+echo "neovim config file : @ : ~/.config/nvim/init.vim"
