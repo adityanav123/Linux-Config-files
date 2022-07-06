@@ -73,12 +73,13 @@ then
         exit
     fi
 
-    npm i -g yarn
+    sudo npm i -g yarn
     curr=$pwd
     cd ~/.config/nvim/plugged/coc.nvim/
     yarn install
     yarn build
     echo "coc set up ; can install language servers now."
+    cd $curr
 fi
 echo "done.."
 
