@@ -65,7 +65,7 @@ read choice
 
 if [[ "$choice" -eq "Y" || "$choice" -eq "y" ]]
 then
-    if [[ $(command -v nodejs) ]]
+    if [[ $(command -v node) ]]
     then
         :
     else
