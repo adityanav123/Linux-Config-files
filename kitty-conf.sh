@@ -28,19 +28,7 @@ fi
 if [ ! -d "~/.config/kitty/" ]
 then
 	mkdir ~/.config/kitty/
-	if [ ! -d "~/.config/kitty/kitty-themes" ]
-	then
-		cp -r ./kitty-conf-files/kitty.conf ~/.config/kitty/
-	fi
-	# DOWNLOADING KITTY THEMES
-	git clone --depth 1 https://github.com/dexpota/kitty-themes.git ~/.config/kitty/kitty-themes
-fi
-
-echo "KITTY_THEME : Earth Song"
-if [ ! -f "~/.config/kitty/earthsong.conf" ]
-then
-	ln -s ~/.config/kitty/kitty-themes/Earthsong.conf ~/.config/kitty/earthsong-config.conf
-	echo "include ./earthsong-config.conf" >> ~/.config/kitty/kitty.conf
+	cp -r ./kitty-conf-files/kitty.conf ~/.config/kitty/
 fi
 
 if [ ! -d "/usr/share/fonts/Monofur" ]
@@ -57,5 +45,6 @@ fc-cache -f -v
 rm -rf ./Monofur.zip
 
 echo "DONE.."
+echo "For Choosing Kitty Themes : Command = {kitty +kitten themes} --> then choose the theme"
 
 
