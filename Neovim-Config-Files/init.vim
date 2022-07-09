@@ -8,6 +8,8 @@ set softtabstop=4
 set mouse=a
 
 
+set nu rnu
+
 nnoremap <C-s> :w<CR> 
 " save.
 nnoremap <C-x> :wq<CR> 
@@ -24,6 +26,7 @@ call plug#begin("~/.config/nvim/plugged")
 	Plug 'preservim/nerdcommenter'
 	Plug 'ryanoasis/vim-devicons'	
 	Plug 'neoclide/coc.nvim'
+	Plug 'lervag/vimtex'	
 call plug#end()
 
 
@@ -54,3 +57,10 @@ nnoremap <F8> :TagbarToggle<CR>
 " Nerd Commenter Config.
 filetype plugin on
 
+
+" Vim-Latex (vimtex) Config.
+let g:tex_flavor = 'latex'
+"compile the tex file
+autocmd FileType tex nnoremap <F5> :VimtexCompile<CR>
+"view the generated pdf
+autocmd FileType tex nnoremap <F4> :VimtexView<CR>
