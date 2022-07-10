@@ -28,7 +28,7 @@ fi
 if [ ! -d "~/.config/kitty/" ]
 then
 	mkdir ~/.config/kitty/
-	cp -r ./kitty-conf-files/kitty.conf ~/.config/kitty/
+	cp -r ./kitty-config-files/kitty.conf ~/.config/kitty/
 fi
 
 if [ ! -d "/usr/share/fonts/Monofur" ]
