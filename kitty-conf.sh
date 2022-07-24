@@ -1,4 +1,4 @@
-#!/bin/bash -e
+#!/bin/bash
 
 echo "Kitty Config"
 
@@ -31,20 +31,30 @@ then
 	cp -r ./kitty-config-files/kitty.conf ~/.config/kitty/
 fi
 
-if [ ! -d "/usr/share/fonts/Monofur" ]
+
+# NERD FONTS INSTALL
+echo "Install Nerd Fonts? : (y/N) (Monofur Nerd Font family will be installed)"
+
+read install_nerd_font
+
+if [[ "$install_nerd_font" == "Y" || "$install_nerd_font" == "y" ]]
 then
-	echo "Installing Monofur Nerd font"
-	wget https://github.com/ryanoasis/nerd-fonts/releases/download/v2.1.0/Monofur.zip
-	sudo mkdir /usr/share/fonts/Monofur
-	sudo unzip ./Monofur.zip -d /usr/share/fonts/Monofur
+
+	if [ ! -d "/usr/share/fonts/Monofur" ]
+	then
+		echo "Installing Monofur Nerd font"
+		wget https://github.com/ryanoasis/nerd-fonts/releases/download/v2.1.0/Monofur.zip
+		sudo mkdir /usr/share/fonts/Monofur
+		sudo unzip ./Monofur.zip -d /usr/share/fonts/Monofur
+	fi
+
+	echo "UPDATING FONT CACHE"
+	fc-cache -f -v
+
+	rm -rf ./Monofur.zip
+	echo "DONE.."
 fi
 
-echo "UPDATING FONT CACHE"
-fc-cache -f -v
-
-rm -rf ./Monofur.zip
-
-echo "DONE.."
-echo "For Choosing Kitty Themes : Command = {kitty +kitten themes} --> then choose the theme"
+echo "For Choosing Kitty Themes : Command = {kitty +kitten themes} --> then choose the theme ( req : kitty version >= 25)"
 
 
