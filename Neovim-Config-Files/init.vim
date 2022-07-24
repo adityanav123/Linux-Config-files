@@ -17,6 +17,9 @@ nnoremap <C-x> :wq<CR>
 nnoremap <C-r> :source ~/.config/nvim/init.vim<CR> 
 " re-source vim init file.
 nnoremap <C-n> :tabnew<CR>
+" Force quit
+nnoremap <C-q> :q!<CR>
+
 
 call plug#begin("~/.config/nvim/plugged")
 	Plug 'preservim/nerdtree'
